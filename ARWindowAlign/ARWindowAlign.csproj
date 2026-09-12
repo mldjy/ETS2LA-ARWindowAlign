@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <OutputType>library</OutputType>
+    <AssemblyName>ARWindowAlign</AssemblyName>
+    <RootNamespace>ARWindowAlign</RootNamespace>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+    <!-- ETS2LA 安装目录（提供编译期引用的程序集） -->
+    <Ets2laDir Condition="'$(Ets2laDir)' == ''">$(LOCALAPPDATA)\ETS2LA\current</Ets2laDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="ETS2LA.Shared">
+      <HintPath>$(Ets2laDir)\ETS2LA.Shared.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="ETS2LA.Logging">
+      <HintPath>$(Ets2laDir)\ETS2LA.Logging.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+</Project>
