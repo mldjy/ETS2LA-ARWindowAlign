@@ -106,20 +106,10 @@ Then enable the assist in-game: AR elements should follow the lane and converge 
 
 ## Limitations
 
-- **Windows only.** The tracker uses Win32 (`GetClientRect` / `ClientToScreen` / `GetSystemMetrics`). Upstream wants a *cross-platform* fix, which this is not — see below.
+- **Windows only.** The tracker uses Win32 (`GetClientRect` / `ClientToScreen` / `GetSystemMetrics`).
 - **Bound to ETS2LA internals.** If upstream renames `ARRenderer` / `WorldToScreen` / `WorldToNDC`, the plugin skips patching and logs `skipped: ...` rather than crashing.
 - **Primary monitor only.** If the game window sits on a secondary monitor, the overlay doesn't cover that area anyway.
 - **No letterbox detection.** When the window's aspect ratio differs from the game's render resolution, AR is mapped to the whole client rect (game-drawn black bars aren't detected).
-
-## Upstream status
-
-Feature request filed: **[ETS2LA#631 — AR rendering should follow the game window rect](https://github.com/ETS2LA/ETS2LA/issues/631)**
-
-Response from the maintainer, [@Tumppi066](https://github.com/Tumppi066):
-
-> This is a known issue that we haven't yet fixed. Once we implement this we want it to be cross platform, and I haven't investigated how this is done on Windows yet. For now we'll sadly have to ask you to either disable AR rendering or use fullscreen mode 👍
-
-So this plugin is a **community-side workaround for the Windows case** until a cross-platform fix lands upstream. It is not affiliated with, endorsed by, or shipped with ETS2LA.
 
 ## Licence
 
