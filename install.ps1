@@ -1,5 +1,5 @@
 ﻿<#
-  安装 / install: 把插件按 ETS2LA 官方布局放进 Plugins\<插件id>\，并登记到安装清单。
+  安装 / install: 把插件放进 Plugins\<插件id>\ 文件夹，并登记到安装清单。
   Plugin id: mldjy.arwindowalign
   Dll      : ARWindowAlign.dll
 #>
