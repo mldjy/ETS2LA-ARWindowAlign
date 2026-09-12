@@ -28,7 +28,7 @@ public class ARWindowAlignPlugin : Plugin
         Version = "1.0.0",
         Name = "AR Window Align",
         Description = "Games AR rendering to the game window instead of the primary monitor, so windowed play lines up.",
-        AuthorName = "mldjy",
+        AuthorName = "迷路的鲸鱼",
     };
 
     public override void Init()
@@ -36,6 +36,7 @@ public class ARWindowAlignPlugin : Plugin
         base.Init();
         Logger.Info("[ARWindowAlign] " + InvokeCore("Apply"));
         Logger.Info("[ARWindowAlign] " + InvokeCore("Status"));
+        StartStatusReports();
     }
 
     public override void OnEnable()
@@ -54,6 +55,24 @@ public class ARWindowAlignPlugin : Plugin
     {
         Logger.Info("[ARWindowAlign] " + InvokeCore("Remove"));
         base.Shutdown();
+    }
+
+    /// <summary>
+    /// Logs the measured geometry and patch counters a few seconds after startup,
+    /// so clipping can be verified from ets2la.log without watching the screen.
+    /// </summary>
+    private static void StartStatusReports()
+    {
+        var t = new Thread(() =>
+        {
+            foreach (var delayMs in new[] { 6000, 12000, 25000 })
+            {
+                Thread.Sleep(delayMs);
+                try { Logger.Info("[ARWindowAlign] " + InvokeCore("Status")); } catch { }
+            }
+        })
+        { IsBackground = true, Name = "ARWindowAlign.Status" };
+        t.Start();
     }
 
     /// <summary>Calls a static method on ARWindowAlign.Core.Patcher (loaded into the default context).</summary>
