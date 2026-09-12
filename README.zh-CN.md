@@ -30,34 +30,34 @@ thisFrameHeight = (int)OverlayHandler.Current.OverlayHeight;
 
 ## 工作原理
 
-由插件施加运行时补丁（Harmony），**不修改 ETS2LA 本体**。AR 有两条渲染通道，两处都挂钩：
+由插件施加运行时补丁（Harmony），**不修改 ETS2LA 本体**。AR 的两条渲染通道各自都要补**坐标换算**与**绘制裁剪**，共四组。
 
-| 通道 | 触发条件 | 挂钩目标 |
-|---|---|---|
-| ImGui 2D 绘制 | 叠加层设置「简化图形」= **开** | `ARRenderer.WorldToScreen(Vector3, int, int)` |
-| 着色器 / 全画质 | 「简化图形」= **关** | `ARRenderer.WorldToNDC(Vector3)` |
+### 1 · 坐标换算 —— ImGui 通道
 
-- **`WorldToScreen`**：`prefix` 把目标尺寸（原为主显示器分辨率）换成**游戏窗口客户区尺寸**；`postfix` 给结果加上客户区在屏幕上的原点坐标。
-- **`WorldToNDC`**：着色器仍按整块显示器的视口绘制，因此把「按显示器映射」的 NDC 换算成「按游戏窗口映射」：
+`ARRenderer.WorldToScreen(Vector3, int, int)` —— 叠加层「简化图形」开启时，所有元素（路径线、圆点、文字、3D 窗口）都经它换算。
 
-  ```
-  ndc'x = (2·winX + (ndc_x + 1)·winW) / monW − 1
-  ndc'y = 1 − (2·winY + (1 − ndc_y)·winH) / monH
-  ```
+- `prefix` 把目标尺寸（原为主显示器分辨率）换成**游戏窗口客户区尺寸** → 修正缩放
+- `postfix` 给结果加上客户区在屏幕上的原点坐标 → 修正偏移
 
-游戏铺满主显示器（全屏 / 无边框全屏）时，两式恒等于原值 —— 插件**完全不干预**，行为与原版一致。
+### 2 · 坐标换算 —— 着色器通道
 
-坐标一律取 **DPI 感知的物理像素**（后台线程先设 `PER_MONITOR_AWARE_V2` 再测量），150% 缩放下不会取到虚拟化尺寸；窗口矩形每 150ms 刷新，游戏未运行时插件处于空闲。
-
-### 为什么拆成两个程序集
-
-ETS2LA 用**可回收 (collectible) `AssemblyLoadContext`** 加载插件。Harmony 生成的补丁包装方法无法引用可回收程序集里的补丁方法，会报：
+`ARRenderer.WorldToNDC(Vector3)` —— 渐变路径带以 NDC 交给 `LineWithGradient` 着色器。着色器仍按整块显示器的视口绘制，因此把「按显示器映射」的 NDC 换算成「按游戏窗口映射」：
 
 ```
-Could not load file or assembly '0Harmony' ... Operation is not supported
+ndc'x = (2·winX + (ndc_x + 1)·winW) / monW − 1
+ndc'y = 1 − (2·winY + (1 − ndc_y)·winH) / monH
 ```
 
-所以补丁代码放在 `ARWindowAlign.Core.dll`，由插件运行时显式加载进**默认（不可回收）上下文**（先装载 Harmony，其依赖才能解析）。
+### 3 · 绘制裁剪 —— ImGui 通道
+
+叠加层始终铺满整块显示器，窗口边缘的 AR 元素会被画到桌面上。因此给每个 `Draw3D*` / `EndWindow` 调用 push 一个与游戏窗口矩形相交的裁剪矩形（调用结束再 pop），让 AR 在窗口边缘被切断 —— 与全屏时被屏幕边缘切断完全一致。
+
+### 4 · 绘制裁剪 —— 着色器通道
+
+渐变带由 GL 直接绘制，ImGui 裁剪对它无效，所以给 `LineWithGradient.RenderPass()` 套上 GL scissor 矩形（GL 原点在左下角，需翻转 y）。
+
+游戏铺满主显示器（全屏 / 无边框全屏）时，四组补丁全部退化为空操作 —— 行为与原版完全一致。
+
 
 ## 安装
 
@@ -89,10 +89,13 @@ dotnet build ARWindowAlign/ARWindowAlign.csproj          -c Release
 启动后 `%LOCALAPPDATA%\ETS2LA\current\ets2la.log` 应出现：
 
 ```
-INF  WorldToScreen patched, WorldToNDC patched
-INF  monitor 3840x2160, game client rect = (1907,524) 1920x1080
+INF  WorldToScreen, WorldToNDC, clip 7 draw methods, shader scissor
+INF  monitor 3840x2160, game client rect = (1907,524) 1920x1080 | patches: WorldToScreen, WorldToNDC, clip 7 draw methods, shader scissor
+INF  ... imgui clip <已裁剪次数>/0 failed, gl scissor <已裁剪次数>/0 failed
 INF 已启用插件：mldjy.arwindowalign
 ```
+
+末尾的计数在启动几秒后自动上报，只靠日志即可确认裁剪确实在执行：`imgui clip` 是走过 ImGui 通道裁剪的绘制次数，`gl scissor` 是套过 GL 裁剪的着色器渲染次数。两者 `0 failed` 即表示补丁正常工作。
 
 游戏内启动辅助后，AR 元素应贴合车道并向消失点收束。若本来就对齐，说明你在全屏模式，插件处于空闲、不干预。
 
@@ -122,7 +125,7 @@ INF 已启用插件：mldjy.arwindowalign
 
 ## 许可与致谢
 
-- 插件代码：**MIT** —— 见 [LICENSE](LICENSE)
+- 插件代码（作者 **迷路的鲸鱼**）：**MIT** —— 见 [LICENSE](LICENSE)
 - 附带 [Lib.Harmony](https://github.com/pardeike/Harmony) 2.4.2（MIT）用于施加运行时补丁 —— 见 [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md)
 - ETS2LA 为 Tumppi066 的独立项目，本仓库不分发其任何二进制文件
 - English: [README.md](README.md)
