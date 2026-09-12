@@ -43,3 +43,9 @@ from the user's own ETS2LA installation, and are never bundled here.
 ## Euro Truck Simulator 2 / American Truck Simulator
 
 Game names and trademarks belong to SCS Software. This project ships no game assets.
+
+## This plugin
+
+- Licence: custom licence v1.0 — see [LICENSE](LICENSE). Free use, modification and
+  redistribution of the original or of a modified version are permitted; selling this
+  plugin before a substantial independent development is not.
