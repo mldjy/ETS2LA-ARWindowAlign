@@ -64,7 +64,24 @@ When the game fills the primary monitor (fullscreen / borderless), all four beco
 ### Option A — prebuilt (nothing to compile)
 
 1. Grab `ARWindowAlign-v1.0.0.zip` from [Releases](../../releases).
-2. Copy the three DLLs into ETS2LA's `Plugins` folder — usually `%LOCALAPPDATA%\ETS2LA\current\Plugins\` (create it if it doesn't exist).
+2. Extract it and run the install script (copies the folder and registers the plugin):
+
+   ```powershell
+   powershell -ExecutionPolicy Bypass -File install.ps1
+   ```
+
+   Or manually: copy the whole `mldjy.arwindowalign` folder into
+   `%LOCALAPPDATA%\ETS2LA\current\Plugins\` and add an entry to
+   `%APPDATA%\ETS2LA\InstalledPluginManifest.json`:
+
+   ```json
+   { "Id": "mldjy.arwindowalign", "Version": "1.0.0",
+     "DllPath": "Plugins\\mldjy.arwindowalign\\ARWindowAlign.dll",
+     "Dependencies": [], "Type": 0 }
+   ```
+
+   > ETS2LA only auto-scans DLLs directly inside `Plugins\`; a plugin in a subfolder
+   > must be listed in the manifest — the same layout the original author's plugins use.
 3. Restart ETS2LA.
 
 ### Option B — build from source
