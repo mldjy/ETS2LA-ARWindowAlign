@@ -111,6 +111,11 @@ Then enable the assist in-game: AR elements should follow the lane and converge 
 - **Primary monitor only.** If the game window sits on a secondary monitor, the overlay doesn't cover that area anyway.
 - **No letterbox detection.** When the window's aspect ratio differs from the game's render resolution, AR is mapped to the whole client rect (game-drawn black bars aren't detected).
 
+## Disclaimer
+
+- Compatibility after **ETS2LA or game updates** is not guaranteed; upstream internal changes may make the patches skip or stop working.
+- This project is **not guaranteed to receive ongoing updates or maintenance**.
+
 ## Licence
 
 - **MIT** — see [LICENSE](LICENSE).
