@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <OutputType>library</OutputType>
+    <AssemblyName>ARWindowAlign.Core</AssemblyName>
+    <RootNamespace>ARWindowAlign.Core</RootNamespace>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+  </PropertyGroup>
+
+  <!-- 这个程序集由插件显式加载到默认(不可回收)的 AssemblyLoadContext。
+       补丁方法必须住在这里，否则 Harmony 无法从不可回收上下文引用可回收上下文的方法。 -->
+  <ItemGroup>
+    <Reference Include="0Harmony">
+      <HintPath>$(MSBuildProjectDirectory)\..\lib\0Harmony.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+</Project>
