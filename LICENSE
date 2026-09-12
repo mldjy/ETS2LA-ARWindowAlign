@@ -1,21 +1,62 @@
-MIT License
+ARWindowAlign 插件许可协议 v1.0 / ARWindowAlign Plugin Licence v1.0
+========================================================================
 
-Copyright (c) 2026 迷路的鲸鱼
+本协议仅约束本插件自身的代码与文档。随包附带的第三方组件（Lib.Harmony 等）
+适用其各自许可，见 THIRD-PARTY-NOTICES.md。
+This licence covers this plugin's own code and documentation only. Bundled
+third-party components keep their own licences (see THIRD-PARTY-NOTICES.md).
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+一、允许 / Permitted
+--------------------
+1. 免费使用、复制、修改本插件。/
+   Free use, copying and modification of this plugin.
+2. 免费分发原版，或你修改后的版本。/
+   Free redistribution of the original or of your modified version.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+
+二、禁止销售 / Resale not permitted
+-----------------------------------
+1. 未做实质性独立开发之前，不得将本插件（原版，或仅作非关键修改的版本）
+   以任何形式直接或间接用于销售、收费、付费墙、捆绑销售，或换取任何形式的对价。/
+   Until a substantial independent development is made, this plugin (the original,
+   or a version carrying only non-critical changes) must not be used directly or
+   indirectly for sale, charging, paywalls, bundling, or any other consideration.
+2. 「非关键修改」包括但不限于：更换其它语言的翻译文本、调整执行顺序、
+   重命名变量/文件、替换图标或文案、简单的兼容性适配等不影响功能实质的改动。
+   这些改动不构成可销售的理由。/
+   "Non-critical changes" include, but are not limited to: translating text or
+   word lists into other languages, changing execution order, renaming variables
+   or files, replacing icons or wording, and simple compatibility tweaks —
+   changes that do not alter the substance of the functionality.
+3. 仅当你做出了实质性的独立更新与优化（例如新增功能、重写核心逻辑、
+   显著提升性能或稳定性等），你的那个版本方可视为可销售；且销售范围仅限
+   你所新增或重写的部分。/ Only after a substantial independent update or
+   optimisation (new features, rewritten core logic, significant performance or
+   stability improvements, ...) may your version be considered sellable, and only
+   the parts you added or rewrote may be sold.
+
+
+三、分发 / Redistribution
+-------------------------
+1. 在上述前提下免费分发，无需事先取得许可。/
+   Free redistribution under the conditions above requires no prior permission.
+2. 分发时不得移除或修改本协议与版权声明。/
+   The licence and copyright notice must not be removed or altered.
+
+
+四、免责 / Disclaimer
+---------------------
+本插件按「现状」提供，不提供任何明示或暗示的担保。/
+Provided "as is", without warranty of any kind.
+
+
+五、其它 / Miscellaneous
+------------------------
+1. 本协议不授予 ETS2LA、Euro Truck Simulator 2 / American Truck Simulator
+   及相关商标的任何权利。/ No rights to those projects or trademarks are granted.
+2. 与第三方组件许可冲突时，以第三方组件自身许可为准。/
+   Third-party component licences prevail where they conflict.
+
+
+版权 (c) 2026 迷路的鲸鱼。协议版本 v1.0。 / Copyright (c) 2026 迷路的鲸鱼. Licence v1.0.
