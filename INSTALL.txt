@@ -48,4 +48,4 @@ Disclaimer
 - 本项目不保证后续持续更新与维护。
 
 
-Licence / 许可：MIT
+Licence / 许可：自定义许可 v1.0（见 LICENSE）
