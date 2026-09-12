@@ -65,7 +65,12 @@ Output: `ARWindowAlign.dll`, `ARWindowAlign.Core.dll` (both in `bin\Release`), p
 
 ## Licence
 
-- **MIT** — see [LICENSE](LICENSE).
+Custom licence v1.0 — see [LICENSE](LICENSE):
+
+- **Permitted**: free use, modification, and free redistribution of the original or a modified version
+- **Not permitted**: selling this plugin (directly or indirectly) before a substantial
+  independent development; non-critical changes (translating word lists into other
+  languages, execution-order tweaks, and similar) do not make a sale permissible
 - Bundles [Lib.Harmony](https://github.com/pardeike/Harmony) 2.4.2 (MIT) to apply the runtime patch — see [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md).
 - ETS2LA is a separate project by Tumppi066; no ETS2LA binaries are redistributed here.
 - 中文说明见 [README.zh-CN.md](README.zh-CN.md).
