@@ -30,34 +30,34 @@ If the game runs in a window (e.g. 1920×1080 on a 3840×2160 desktop), every AR
 
 ## How it works
 
-A runtime patch (Harmony) applied by a plugin — **ETS2LA itself is not modified**. AR has two render channels and *both* are patched:
+A runtime patch (Harmony) applied by a plugin — **ETS2LA itself is not modified**. Four things are patched: the coordinate mapping and the clipping, for **each** of the two AR render channels.
 
-| Channel | When | Patched method |
-|---|---|---|
-| ImGui 2D | Overlay setting *Simplified Graphics* = **on** | `ARRenderer.WorldToScreen(Vector3, int, int)` |
-| Shader / full quality | *Simplified Graphics* = **off** | `ARRenderer.WorldToNDC(Vector3)` |
+### 1 · Coordinate mapping — ImGui channel
 
-- **`WorldToScreen`** — `prefix` replaces the destination size (monitor resolution) with the **game client rect**; `postfix` adds the client rect's screen origin.
-- **`WorldToNDC`** — the shader still draws into the monitor-sized overlay viewport, so monitor-mapped NDC is remapped to window-mapped NDC:
+`ARRenderer.WorldToScreen(Vector3, int, int)` — every element (path lines, dots, labels, 3D windows) goes through it when the overlay's *Simplified Graphics* is on.
 
-  ```
-  ndc'x = (2·winX + (ndc_x + 1)·winW) / monW − 1
-  ndc'y = 1 − (2·winY + (1 − ndc_y)·winH) / monH
-  ```
+- `prefix` replaces the destination size (monitor resolution) with the **game client rect** → fixes the scale
+- `postfix` adds the client rect's screen origin → fixes the offset
 
-When the game fills the primary monitor (fullscreen / borderless), both are identity transforms and the plugin does nothing — stock behaviour, no risk.
+### 2 · Coordinate mapping — shader channel
 
-Geometry is measured in **DPI-aware physical pixels** (a background thread sets `PER_MONITOR_AWARE_V2` before measuring), so 150% display scaling doesn't skew the numbers. The window rect is re-read every 150 ms; if the process isn't running, the plugin is idle.
-
-### Why two assemblies
-
-ETS2LA loads plugins into a **collectible** `AssemblyLoadContext`. Harmony's generated patch wrappers cannot reference patch methods that live in a collectible assembly — attempting it fails with:
+`ARRenderer.WorldToNDC(Vector3)` — the gradient path bands are handed to the `LineWithGradient` shader as NDC. The shader still draws into the monitor-sized overlay viewport, so monitor-mapped NDC is remapped to window-mapped NDC:
 
 ```
-Could not load file or assembly '0Harmony' ... Operation is not supported
+ndc'x = (2·winX + (ndc_x + 1)·winW) / monW − 1
+ndc'y = 1 − (2·winY + (1 − ndc_y)·winH) / monH
 ```
 
-So the patching code lives in `ARWindowAlign.Core.dll`, which the plugin explicitly loads into the **default (non-collectible)** context at runtime (loading Harmony first, so the dependency resolves).
+### 3 · Clipping — ImGui channel
+
+The overlay keeps covering the whole monitor, so an AR element at a window edge would be drawn onto the desktop. Every `Draw3D*` / `EndWindow` call therefore pushes a clip rect intersected with the game window rect (and pops it afterwards), cutting AR at the window edge exactly like fullscreen cuts it at the screen edge.
+
+### 4 · Clipping — shader channel
+
+The gradient bands are drawn by GL, where ImGui clipping has no effect, so `LineWithGradient.RenderPass()` is wrapped in a GL scissor rectangle (GL's origin is bottom-left, so Y is flipped).
+
+When the game fills the primary monitor (fullscreen / borderless), all four become no-ops — stock behaviour, unchanged.
+
 
 ## Install
 
@@ -89,10 +89,13 @@ Then copy `ARWindowAlign.dll`, `ARWindowAlign.Core.dll` (both from `bin\Release`
 On startup, `%LOCALAPPDATA%\ETS2LA\current\ets2la.log` should show:
 
 ```
-INF  WorldToScreen patched, WorldToNDC patched
-INF  monitor 3840x2160, game client rect = (1907,524) 1920x1080
+INF  WorldToScreen, WorldToNDC, clip 7 draw methods, shader scissor
+INF  monitor 3840x2160, game client rect = (1907,524) 1920x1080 | patches: WorldToScreen, WorldToNDC, clip 7 draw methods, shader scissor
+INF  ... imgui clip <pushed>/0 failed, gl scissor <set>/0 failed
 INF 已启用插件：mldjy.arwindowalign
 ```
+
+The trailing counters are reported a few seconds after startup so clipping can be verified from the log alone: `imgui clip` counts the AR draws that were clipped, `gl scissor` the shader passes that were scissored. `0 failed` on both means the patches are executing.
 
 Then enable the assist in-game: AR elements should follow the lane and converge on the vanishing point. If your AR already lines up, you're in fullscreen and the plugin is simply idle.
 
@@ -120,7 +123,7 @@ So this plugin is a **community-side workaround for the Windows case** until a c
 
 ## Credits & licence
 
-- Plugin code: **MIT** — see [LICENSE](LICENSE).
+- Plugin code by **迷路的鲸鱼**: **MIT** — see [LICENSE](LICENSE).
 - Bundles [Lib.Harmony](https://github.com/pardeike/Harmony) 2.4.2 (MIT) to apply the runtime patch — see [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md).
 - ETS2LA is a separate project by Tumppi066; no ETS2LA binaries are redistributed here.
 - 中文说明见 [README.zh-CN.md](README.zh-CN.md).
