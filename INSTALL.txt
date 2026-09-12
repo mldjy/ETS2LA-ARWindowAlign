@@ -1,0 +1,51 @@
+ETS2LA AR Window Align - installation
+=======================================
+
+1. Install (recommended: run the script, it registers the plugin for you)
+------------------------------------------------------------------------
+1. Extract this archive.
+2. Right-click install.ps1 -> "Run with PowerShell", or run:
+     powershell -ExecutionPolicy Bypass -File install.ps1
+   It will:
+     - copy the mldjy.arwindowalign folder into ETS2LA's Plugins directory
+     - register the plugin in %APPDATA%\ETS2LA\InstalledPluginManifest.json (backed up first)
+     - remove the old loose DLLs from the Plugins root if present
+3. Restart ETS2LA.
+
+2. Manual install
+-----------------
+1. Copy the whole mldjy.arwindowalign folder into:
+     %LOCALAPPDATA%\ETS2LA\current\Plugins\
+2. Add an entry to %APPDATA%\ETS2LA\InstalledPluginManifest.json:
+     {
+       "Id": "mldjy.arwindowalign",
+       "Version": "1.0.0",
+       "DllPath": "Plugins\\mldjy.arwindowalign\\ARWindowAlign.dll",
+       "Dependencies": [],
+       "Type": 0
+     }
+3. Restart ETS2LA.
+
+   ETS2LA only auto-scans DLLs directly inside Plugins\; plugins in
+   subfolders must be listed in the manifest above.
+
+3. Uninstall
+------------
+Run uninstall.ps1, or delete the mldjy.arwindowalign folder and its manifest entry.
+
+
+Disclaimer
+----------
+- Compatibility after ETS2LA or game updates is not guaranteed; upstream internal
+  changes may make the patches skip or stop working.
+- This project is not guaranteed to receive ongoing updates or maintenance.
+
+
+免责声明
+--------
+- 不保证在 ETS2LA 或游戏版本更新后仍然兼容 —— 上游内部实现变动可能导致
+  补丁跳过或部分失效。
+- 本项目不保证后续持续更新与维护。
+
+
+Licence / 许可：MIT
