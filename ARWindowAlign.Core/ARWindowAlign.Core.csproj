@@ -9,6 +9,9 @@
     <AssemblyName>ARWindowAlign.Core</AssemblyName>
     <RootNamespace>ARWindowAlign.Core</RootNamespace>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <!-- ETS2LA 安装目录（编译期引用其程序集，运行时不随附） -->
+    <Ets2laDir Condition="'$(Ets2laDir)' == ''">$(LOCALAPPDATA)\ETS2LA\current</Ets2laDir>
   </PropertyGroup>
 
   <!-- 这个程序集由插件显式加载到默认(不可回收)的 AssemblyLoadContext。
@@ -16,6 +19,18 @@
   <ItemGroup>
     <Reference Include="0Harmony">
       <HintPath>$(MSBuildProjectDirectory)\..\lib\0Harmony.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Hexa.NET.ImGui">
+      <HintPath>$(Ets2laDir)\Hexa.NET.ImGui.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Hexa.NET.OpenGL.Core">
+      <HintPath>$(Ets2laDir)\Hexa.NET.OpenGL.Core.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Hexa.NET.OpenGL3">
+      <HintPath>$(Ets2laDir)\Hexa.NET.OpenGL3.dll</HintPath>
       <Private>false</Private>
     </Reference>
   </ItemGroup>
