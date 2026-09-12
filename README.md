@@ -1,5 +1,7 @@
 # ARWindowAlign
 
+**English** | [简体中文](README.zh-CN.md)
+
 **Makes ETS2LA's AR rendering follow the game window instead of the primary monitor** — so AR path lines line up with the road when you drive in **windowed mode** (Euro Truck Simulator 2 / American Truck Simulator).
 
 **The geometry, nested:**
