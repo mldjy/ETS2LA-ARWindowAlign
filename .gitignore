@@ -1,0 +1,12 @@
+# build output
+bin/
+obj/
+
+# third-party dependency fetched by scripts/fetch-harmony.ps1
+lib/
+
+# IDE / editor
+.vs/
+.idea/
+*.user
+*.suo
