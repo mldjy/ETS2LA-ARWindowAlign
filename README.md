@@ -2,15 +2,13 @@
 
 **Makes ETS2LA's AR rendering follow the game window instead of the primary monitor** — so AR path lines line up with the road when you drive in **windowed mode** (Euro Truck Simulator 2 / American Truck Simulator).
 
-**Shader / full quality** — *Simplified Graphics* **off** (the channel a `WorldToScreen`-only patch misses):
+**The geometry, nested:**
 
-![Shader channel alignment](docs/verify-shader-path.png)
-
-**ImGui 2D** — *Simplified Graphics* **on**:
-
-![ImGui channel alignment](docs/verify-imgui-path.png)
-
-*Both captured on a 3840×2160 desktop with the game window at (1907,524), 1920×1080: the AR band hugs the lane and converges on the vanishing point.*
+```
+primary monitor  3840x2160                    <- ETS2LA's AR basis by default
+└── game window  (1907,524) 1920x1080         <- where the game actually renders
+    └── AR must be scaled to this rect and offset by its screen origin
+```
 
 ## The problem
 
