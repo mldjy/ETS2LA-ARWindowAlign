@@ -106,22 +106,10 @@ INF 已启用插件：mldjy.arwindowalign
 
 ## 已知限制
 
-- **仅 Windows**：几何跟踪使用 Win32（`GetClientRect` / `ClientToScreen` / `GetSystemMetrics`）。上游想要的是一套**跨平台**方案，本插件不是。
+- **仅 Windows**：几何跟踪使用 Win32（`GetClientRect` / `ClientToScreen` / `GetSystemMetrics`）。
 - **与 ETS2LA 内部实现绑定**：上游若重命名 `ARRenderer` / `WorldToScreen` / `WorldToNDC`，插件会跳过补丁并在日志打印 `skipped: ...`，不会崩溃。
 - **仅主显示器**：游戏窗口若在副屏，叠加层本身也不覆盖那块区域。
 - **不识别黑边**：窗口宽高比与游戏渲染分辨率不一致时，AR 按整个客户区映射（未检测游戏自己画的上下黑边）。
-
-## 上游状态
-
-已提交功能请求：**[ETS2LA#631 — AR rendering should follow the game window rect](https://github.com/ETS2LA/ETS2LA/issues/631)**
-
-项目负责人 [@Tumppi066](https://github.com/Tumppi066) 的回复：
-
-> This is a known issue that we haven't yet fixed. Once we implement this we want it to be cross platform, and I haven't investigated how this is done on Windows yet. For now we'll sadly have to ask you to either disable AR rendering or use fullscreen mode 👍
-
-（已知问题、尚未修复；官方实现时要跨平台，而 Windows 侧尚未研究；目前的建议是关掉 AR 渲染或改用全屏。）
-
-因此本插件是**社区侧针对 Windows 的临时解法**，与 ETS2LA 项目无隶属或背书关系。
 
 ## 许可
 
