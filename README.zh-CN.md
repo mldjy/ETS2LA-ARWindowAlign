@@ -64,7 +64,24 @@ ndc'y = 1 − (2·winY + (1 − ndc_y)·winH) / monH
 ### 方式 A — 用现成包（无需编译）
 
 1. 从 [Releases](../../releases) 下载 `ARWindowAlign-v1.0.0.zip`
-2. 把三个 DLL 复制到 ETS2LA 的 `Plugins` 目录：通常是 `%LOCALAPPDATA%\ETS2LA\current\Plugins\`（不存在就新建）
+2. 解压后运行安装脚本（自动复制文件夹并登记到 ETS2LA 的插件清单）：
+
+   ```powershell
+   powershell -ExecutionPolicy Bypass -File install.ps1
+   ```
+
+   也可以手动安装：把 `mldjy.arwindowalign` 整个文件夹复制到
+   `%LOCALAPPDATA%\ETS2LA\current\Plugins\`，再在
+   `%APPDATA%\ETS2LA\InstalledPluginManifest.json` 里加一条：
+
+   ```json
+   { "Id": "mldjy.arwindowalign", "Version": "1.0.0",
+     "DllPath": "Plugins\\mldjy.arwindowalign\\ARWindowAlign.dll",
+     "Dependencies": [], "Type": 0 }
+   ```
+
+   > ETS2LA 只自动扫描 `Plugins\` 根目录下的 DLL，子文件夹里的插件必须登记清单才会被加载
+   > —— 这与 ETS2LA 原作者插件的安装方式一致（一个插件一个文件夹）。
 3. 重启 ETS2LA
 
 ### 方式 B — 自行编译
