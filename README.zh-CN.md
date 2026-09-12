@@ -123,9 +123,9 @@ INF 已启用插件：mldjy.arwindowalign
 
 因此本插件是**社区侧针对 Windows 的临时解法**，与 ETS2LA 项目无隶属或背书关系。
 
-## 许可与致谢
+## 许可
 
-- 插件代码（作者 **迷路的鲸鱼**）：**MIT** —— 见 [LICENSE](LICENSE)
+- **MIT** —— 见 [LICENSE](LICENSE)
 - 附带 [Lib.Harmony](https://github.com/pardeike/Harmony) 2.4.2（MIT）用于施加运行时补丁 —— 见 [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md)
 - ETS2LA 为 Tumppi066 的独立项目，本仓库不分发其任何二进制文件
 - English: [README.md](README.md)
