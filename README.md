@@ -121,9 +121,9 @@ Response from the maintainer, [@Tumppi066](https://github.com/Tumppi066):
 
 So this plugin is a **community-side workaround for the Windows case** until a cross-platform fix lands upstream. It is not affiliated with, endorsed by, or shipped with ETS2LA.
 
-## Credits & licence
+## Licence
 
-- Plugin code by **迷路的鲸鱼**: **MIT** — see [LICENSE](LICENSE).
+- **MIT** — see [LICENSE](LICENSE).
 - Bundles [Lib.Harmony](https://github.com/pardeike/Harmony) 2.4.2 (MIT) to apply the runtime patch — see [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md).
 - ETS2LA is a separate project by Tumppi066; no ETS2LA binaries are redistributed here.
 - 中文说明见 [README.zh-CN.md](README.zh-CN.md).
