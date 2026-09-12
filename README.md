@@ -81,7 +81,7 @@ When the game fills the primary monitor (fullscreen / borderless), all four beco
    ```
 
    > ETS2LA only auto-scans DLLs directly inside `Plugins\`; a plugin in a subfolder
-   > must be listed in the manifest — the same layout the original author's plugins use.
+   > must be listed in the manifest.
 3. Restart ETS2LA.
 
 ### Option B — build from source
