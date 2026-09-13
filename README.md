@@ -1,4 +1,4 @@
-# ETS2LA AR Window Align
+# ETS2LA AR Window Align
 
 **English** &nbsp;|&nbsp; [简体中文](README.zh-CN.md)
 
