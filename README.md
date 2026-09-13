@@ -1,4 +1,6 @@
-# ETS2LA AR Window Align
+# ETS2LA AR Window Align
+
+**English** &nbsp;|&nbsp; [简体中文](README.zh-CN.md)
 
 A third-party plugin for [ETS2LA](https://github.com/ETS2LA/ETS2LA) (Euro Truck Simulator 2 autopilot): makes AR rendering follow the **game window** instead of the primary monitor, and keeps AR inside the window.
 
@@ -79,4 +81,3 @@ Custom licence v1.1 — see [LICENSE](LICENSE):
   updating, and sales completed before that are not affected
 - Bundles [Lib.Harmony](https://github.com/pardeike/Harmony) 2.4.2 (MIT) to apply the runtime patch — see [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md).
 - ETS2LA is a separate project by Tumppi066; no ETS2LA binaries are redistributed here.
-- 中文说明见 [README.zh-CN.md](README.zh-CN.md).
