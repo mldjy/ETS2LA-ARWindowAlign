@@ -1,4 +1,4 @@
-ARWindowAlign 插件许可协议 v1.0 / ARWindowAlign Plugin Licence v1.0
+ARWindowAlign 插件许可协议 v1.1 / ARWindowAlign Plugin Licence v1.1
 ========================================================================
 
 本协议仅约束本插件自身的代码与文档。随包附带的第三方组件（Lib.Harmony 等）
@@ -37,7 +37,19 @@ third-party components keep their own licences (see THIRD-PARTY-NOTICES.md).
    the parts you added or rewrote may be sold.
 
 
-三、分发 / Redistribution
+三、失效后的简单修复 / Simple repairs after it stops working
+-----------------------------------------------------------
+1. 若本插件因 ETS2LA 或游戏版本更新而失效，且作者已停止更新一段时间，
+   允许他人在仅做恢复可用性的简单修复后销售该修改版本。/
+   If this plugin stops working after an update to ETS2LA or the game, and its
+   author has not updated it for a while, selling a version repaired just enough
+   to work again is permitted.
+2. 作者恢复更新后，上述基于简单修复的销售应当立即停止。/
+   Such sales must stop immediately once the author resumes updating.
+3. 作者恢复更新之前已经完成的销售不受影响。/
+   Sales completed before the author resumed updating are not affected.
+
+四、分发 / Redistribution
 -------------------------
 1. 在上述前提下免费分发，无需事先取得许可。/
    Free redistribution under the conditions above requires no prior permission.
@@ -45,13 +57,13 @@ third-party components keep their own licences (see THIRD-PARTY-NOTICES.md).
    The licence and copyright notice must not be removed or altered.
 
 
-四、免责 / Disclaimer
+五、免责 / Disclaimer
 ---------------------
 本插件按「现状」提供，不提供任何明示或暗示的担保。/
 Provided "as is", without warranty of any kind.
 
 
-五、其它 / Miscellaneous
+六、其它 / Miscellaneous
 ------------------------
 1. 本协议不授予 ETS2LA、Euro Truck Simulator 2 / American Truck Simulator
    及相关商标的任何权利。/ No rights to those projects or trademarks are granted.
@@ -59,4 +71,4 @@ Provided "as is", without warranty of any kind.
    Third-party component licences prevail where they conflict.
 
 
-版权 (c) 2026 迷路的鲸鱼。协议版本 v1.0。 / Copyright (c) 2026 迷路的鲸鱼. Licence v1.0.
+版权 (c) 2026 迷路的鲸鱼。协议版本 v1.1。 / Copyright (c) 2026 迷路的鲸鱼. Licence v1.1.
