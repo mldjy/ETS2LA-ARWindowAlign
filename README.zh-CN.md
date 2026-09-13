@@ -1,4 +1,4 @@
-# ETS2LA AR 窗口对齐（ARWindowAlign）
+# ETS2LA AR 窗口对齐（ARWindowAlign）
 
 **简体中文** &nbsp;|&nbsp; [English](README.md)
 
