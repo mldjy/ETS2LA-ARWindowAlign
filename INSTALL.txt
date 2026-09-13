@@ -1,6 +1,8 @@
-ETS2LA AR Window Align - installation
-=======================================
+ETS2LA AR Window Align - installation / 安装说明
+================================================
 Tested with ETS2LA [v2026.9.5012] / Euro Truck Simulator 2 [1.6.0]
+基于 ETS2LA [v2026.9.5012]、欧洲卡车模拟2 [1.6.0] 测试
+
 
 1. Install (recommended: run the script, it registers the plugin for you)
 ------------------------------------------------------------------------
@@ -12,6 +14,19 @@ Tested with ETS2LA [v2026.9.5012] / Euro Truck Simulator 2 [1.6.0]
      - register the plugin in %APPDATA%\ETS2LA\InstalledPluginManifest.json (backed up first)
      - remove the old loose DLLs from the Plugins root if present
 3. Restart ETS2LA.
+
+
+一、安装（推荐：用安装脚本，会自动登记到 ETS2LA 的插件清单）
+----------------------------------------------------------
+1. 解压本压缩包。
+2. 右键 install.ps1 -> “使用 PowerShell 运行”；或在 PowerShell 中执行：
+     powershell -ExecutionPolicy Bypass -File install.ps1
+   脚本会做三件事：
+     · 把 mldjy.arwindowalign 整个文件夹复制到 ETS2LA 的 Plugins 目录
+     · 把插件登记到 %APPDATA%\ETS2LA\InstalledPluginManifest.json（先自动备份）
+     · 清理旧版直接放在 Plugins\ 根目录里的零散 DLL（如果有）
+3. 重启 ETS2LA。
+
 
 2. Manual install
 -----------------
@@ -27,23 +42,49 @@ Tested with ETS2LA [v2026.9.5012] / Euro Truck Simulator 2 [1.6.0]
      }
 3. Restart ETS2LA.
 
-   ETS2LA only auto-scans DLLs directly inside Plugins\; plugins in
-   subfolders must be listed in the manifest above.
+   ETS2LA only auto-scans DLLs directly inside Plugins\; plugins in subfolders
+   must be listed in the manifest above.
+
+
+二、手动安装（不使用脚本时）
+--------------------------
+1. 把整个 mldjy.arwindowalign 文件夹复制到：
+     %LOCALAPPDATA%\ETS2LA\current\Plugins\
+2. 用文本编辑器打开 %APPDATA%\ETS2LA\InstalledPluginManifest.json，
+   在 "InstalledPlugins": [ ] 中增加一条（注意前一条后面要加逗号）：
+     {
+       "Id": "mldjy.arwindowalign",
+       "Version": "1.0.0",
+       "DllPath": "Plugins\\mldjy.arwindowalign\\ARWindowAlign.dll",
+       "Dependencies": [],
+       "Type": 0
+     }
+3. 重启 ETS2LA。
+
+   为什么要登记清单：ETS2LA 只会自动扫描 Plugins\ 根目录下的 DLL，
+   子文件夹里的插件必须出现在上述清单中才会被加载。
+
 
 3. Uninstall
 ------------
 Run uninstall.ps1, or delete the mldjy.arwindowalign folder and its manifest entry.
 
-Disclaimer
-----------
+
+三、卸载
+--------
+运行 uninstall.ps1（会删除文件夹并移除清单条目），或手动删除：
+  %LOCALAPPDATA%\ETS2LA\current\Plugins\mldjy.arwindowalign\  （整个文件夹）
+以及清单里对应的那一条。
+
+
+Disclaimer / 免责声明
+---------------------
 - Compatibility after ETS2LA or game updates is not guaranteed; upstream internal
   changes may make the patches skip or stop working.
 - This project is not guaranteed to receive ongoing updates or maintenance.
-
-免责声明
---------
 - 不保证在 ETS2LA 或游戏版本更新后仍然兼容 —— 上游内部实现变动可能导致
   补丁跳过或部分失效。
 - 本项目不保证后续持续更新与维护。
+
 
 Licence / 许可：自定义许可 v1.1（见 LICENSE）
