@@ -1,6 +1,6 @@
 # ETS2LA AR Window Align
 
-A third-party plugin for [ETS2LA](https://github.com/ETS2LA/ETS2LA) (Euro Truck Simulator 2 / American Truck Simulator autopilot): makes AR rendering follow the **game window** instead of the primary monitor, and keeps AR inside the window.
+A third-party plugin for [ETS2LA](https://github.com/ETS2LA/ETS2LA) (Euro Truck Simulator 2 autopilot): makes AR rendering follow the **game window** instead of the primary monitor, and keeps AR inside the window.
 
 Tested with ETS2LA **v2026.9.5012** / Euro Truck Simulator 2 **1.6.0**
 
