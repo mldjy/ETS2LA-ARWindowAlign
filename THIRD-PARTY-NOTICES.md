@@ -46,6 +46,6 @@ Game names and trademarks belong to SCS Software. This project ships no game ass
 
 ## This plugin
 
-- Licence: custom licence v1.0 — see [LICENSE](LICENSE). Free use, modification and
+- Licence: custom licence v1.1 — see [LICENSE](LICENSE). Free use, modification and
   redistribution of the original or of a modified version are permitted; selling this
   plugin before a substantial independent development is not.
