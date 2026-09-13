@@ -40,6 +40,11 @@ and is not affiliated with or endorsed by it. No ETS2LA binaries are redistribut
 `ETS2LA.Shared.dll` and `ETS2LA.Logging.dll` are referenced at compile time only,
 from the user's own ETS2LA installation, and are never bundled here.
 
+This plugin is independently written: it uses no ETS2LA code or resources, and it does
+not modify any ETS2LA program file on disk — it is loaded through ETS2LA's own plugin
+mechanism and everything it does takes effect in process memory only (runtime patches
+applied by Lib.Harmony).
+
 ## Euro Truck Simulator 2 / American Truck Simulator
 
 Game names and trademarks belong to SCS Software. This project ships no game assets.
