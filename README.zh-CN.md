@@ -1,6 +1,6 @@
 # ETS2LA AR 窗口对齐（ARWindowAlign）
 
-[ETS2LA](https://github.com/ETS2LA/ETS2LA)（欧洲卡车模拟2 / 美国卡车模拟自动驾驶辅助）的第三方插件：让 AR 渲染跟随**游戏窗口**而不是主显示器，并保证 AR 只画在窗口内。
+[ETS2LA](https://github.com/ETS2LA/ETS2LA)（欧洲卡车模拟2 自动驾驶辅助）的第三方插件：让 AR 渲染跟随**游戏窗口**而不是主显示器，并保证 AR 只画在窗口内。
 
 基于 ETS2LA **v2026.9.5012**、欧洲卡车模拟2 **1.6.0** 测试
 
