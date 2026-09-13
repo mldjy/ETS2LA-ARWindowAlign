@@ -74,7 +74,7 @@ Custom licence v1.1 — see [LICENSE](LICENSE):
   independent development; non-critical changes (translating word lists into other
   languages, execution-order tweaks, and similar) do not make a sale permissible
 - **Exception**: if this plugin stops working after an update to ETS2LA or the game
-  and the author has not updated it for a while, selling a version repaired just
+  and the author has not updated it for more than one week, selling a version repaired just
   enough to work is permitted; such sales must stop once the author resumes
   updating, and sales completed before that are not affected
 - Bundles [Lib.Harmony](https://github.com/pardeike/Harmony) 2.4.2 (MIT) to apply the runtime patch — see [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md).
