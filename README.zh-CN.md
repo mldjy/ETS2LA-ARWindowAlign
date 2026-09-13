@@ -71,7 +71,7 @@ dotnet build ARWindowAlign\ARWindowAlign.csproj -c Release
 - **允许**：免费使用、修改，以及免费分发原版或修改版
 - **不允许**：在未做实质性独立开发之前，以任何形式直接或间接销售本插件；
   仅做非关键修改（例如换成其它语言的翻译文本、调整执行顺序等细微改动）不构成可销售的理由
-- **例外**：若本插件因 ETS2LA 或游戏更新而失效，且作者已停止更新一周以上，
+- **例外**：若本插件因 ETS2LA 或游戏更新而失效，且自失效之日起已满一周、作者仍未更新，
   允许他人在仅做恢复可用性的简单修复后销售该版本；作者恢复更新后须立即停止此类销售，
   此前已完成的销售不受影响
 - 附带 [Lib.Harmony](https://github.com/pardeike/Harmony) 2.4.2（MIT）—— 见 [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md)
