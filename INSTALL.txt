@@ -34,19 +34,16 @@ Tested with ETS2LA [v2026.9.5012] / Euro Truck Simulator 2 [1.6.0]
 ------------
 Run uninstall.ps1, or delete the mldjy.arwindowalign folder and its manifest entry.
 
-
 Disclaimer
 ----------
 - Compatibility after ETS2LA or game updates is not guaranteed; upstream internal
   changes may make the patches skip or stop working.
 - This project is not guaranteed to receive ongoing updates or maintenance.
 
-
 免责声明
 --------
 - 不保证在 ETS2LA 或游戏版本更新后仍然兼容 —— 上游内部实现变动可能导致
   补丁跳过或部分失效。
 - 本项目不保证后续持续更新与维护。
-
 
 Licence / 许可：自定义许可 v1.1（见 LICENSE）
