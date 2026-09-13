@@ -7,14 +7,14 @@ This licence covers this plugin's own code and documentation only. Bundled
 third-party components keep their own licences (see THIRD-PARTY-NOTICES.md).
 
 一、允许 / Permitted
---------------------
+----------------
 1. 免费使用、复制、修改本插件。/
    Free use, copying and modification of this plugin.
 2. 免费分发原版，或你修改后的版本。/
    Free redistribution of the original or of your modified version.
 
-二、禁止销售 / Resale not permitted
------------------------------------
+二、关于销售 / Sales
+--------------
 1. 未做实质性独立开发之前，不得将本插件（原版，或仅作非关键修改的版本）
    以任何形式直接或间接用于销售、收费、付费墙、捆绑销售，或换取任何形式的对价。/
    Until a substantial independent development is made, this plugin (the original,
@@ -34,34 +34,32 @@ third-party components keep their own licences (see THIRD-PARTY-NOTICES.md).
    stability improvements, ...) may your version be considered sellable, and only
    the parts you added or rewrote may be sold.
 
-三、作者停止更新一周后，简单修复版的销售 / Selling a simply repaired version once the author has stopped updating for a week
---------------------------------------------------------------------------------------------------------
-1. 若本插件因 ETS2LA 或游戏版本更新而失效，且自本插件失效之日起已满一周、作者仍未更新，
+4. 若本插件因 ETS2LA 或游戏版本更新而失效，且自本插件失效之日起已满一周、作者仍未更新，
    允许他人在仅做恢复可用性的简单修复后销售该修改版本。
    上述一周自插件失效之日起算，不以插件的上传或最后更新日期起算。/
    If this plugin stops working after an update to ETS2LA or the game, and its author
    has not updated it within one week of that point, selling a version repaired just
    enough to work again is permitted. The week counts from the moment the plugin stops
    working, not from the plugin's upload or last-update date.
-2. 作者恢复更新后，上述基于简单修复的销售应当立即停止。/
+5. 作者恢复更新后，上述基于简单修复的销售应当立即停止。/
    Such sales must stop immediately once the author resumes updating.
-3. 作者恢复更新之前已经完成的销售不受影响。/
+6. 作者恢复更新之前已经完成的销售不受影响。/
    Sales completed before the author resumed updating are not affected.
 
-四、分发 / Redistribution
--------------------------
+三、分发 / Redistribution
+---------------------
 1. 在上述前提下免费分发，无需事先取得许可。/
    Free redistribution under the conditions above requires no prior permission.
 2. 分发时不得移除或修改本协议与版权声明。/
    The licence and copyright notice must not be removed or altered.
 
-五、免责 / Disclaimer
----------------------
+四、免责 / Disclaimer
+-----------------
 本插件按「现状」提供，不提供任何明示或暗示的担保。/
 Provided "as is", without warranty of any kind.
 
-六、其它 / Miscellaneous
-------------------------
+五、其它 / Miscellaneous
+--------------------
 1. 本协议不授予 ETS2LA、Euro Truck Simulator 2 / American Truck Simulator
    及相关商标的任何权利。/ No rights to those projects or trademarks are granted.
 2. 与第三方组件许可冲突时，以第三方组件自身许可为准。/
