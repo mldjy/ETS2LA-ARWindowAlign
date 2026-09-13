@@ -1,4 +1,6 @@
-# ETS2LA AR 窗口对齐（ARWindowAlign）
+# ETS2LA AR 窗口对齐（ARWindowAlign）
+
+**简体中文** &nbsp;|&nbsp; [English](README.md)
 
 [ETS2LA](https://github.com/ETS2LA/ETS2LA)（欧洲卡车模拟2 自动驾驶辅助）的第三方插件：让 AR 渲染跟随**游戏窗口**而不是主显示器，并保证 AR 只画在窗口内。
 
@@ -76,4 +78,3 @@ dotnet build ARWindowAlign\ARWindowAlign.csproj -c Release
   此前已完成的销售不受影响
 - 附带 [Lib.Harmony](https://github.com/pardeike/Harmony) 2.4.2（MIT）—— 见 [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md)
 - ETS2LA 为 Tumppi066 的独立项目，本仓库不分发其任何二进制文件
-- English: [README.md](README.md)
