@@ -1,6 +1,6 @@
 ETS2LA AR Window Align - installation
 =======================================
-Tested with ETS2LA v2026.9.5012 / Euro Truck Simulator 2 1.6.0
+Tested with ETS2LA [v2026.9.5012] / Euro Truck Simulator 2 [1.6.0]
 
 1. Install (recommended: run the script, it registers the plugin for you)
 ------------------------------------------------------------------------
