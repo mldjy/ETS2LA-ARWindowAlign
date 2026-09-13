@@ -66,18 +66,3 @@ Output: `ARWindowAlign.dll`, `ARWindowAlign.Core.dll` (both in `bin\Release`), p
 
 - Compatibility after **ETS2LA or game updates** is not guaranteed.
 - This project is **not guaranteed to receive ongoing updates or maintenance**.
-
-## Licence
-
-Custom licence v1.1 — see [LICENSE](LICENSE):
-
-- **Permitted**: free use, modification, and free redistribution of the original or a modified version
-- **Not permitted**: selling this plugin (directly or indirectly) before a substantial
-  independent development; non-critical changes (translating word lists into other
-  languages, execution-order tweaks, and similar) do not make a sale permissible
-- **Exception**: if this plugin stops working after an update to ETS2LA or the game
-  and the author has not updated it within one week of that point (counted from the moment it stops working), selling a version repaired just
-  enough to work is permitted; such sales must stop once the author resumes
-  updating, and sales completed before that are not affected
-- Bundles [Lib.Harmony](https://github.com/pardeike/Harmony) 2.4.2 (MIT) to apply the runtime patch — see [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md).
-- ETS2LA is a separate project by Tumppi066; no ETS2LA binaries are redistributed here.
