@@ -39,10 +39,10 @@ third-party components keep their own licences (see THIRD-PARTY-NOTICES.md).
 
 三、失效后的简单修复 / Simple repairs after it stops working
 -----------------------------------------------------------
-1. 若本插件因 ETS2LA 或游戏版本更新而失效，且作者已停止更新一段时间，
+1. 若本插件因 ETS2LA 或游戏版本更新而失效，且作者已停止更新一周以上，
    允许他人在仅做恢复可用性的简单修复后销售该修改版本。/
    If this plugin stops working after an update to ETS2LA or the game, and its
-   author has not updated it for a while, selling a version repaired just enough
+   author has not updated it for more than a week, selling a version repaired just enough
    to work again is permitted.
 2. 作者恢复更新后，上述基于简单修复的销售应当立即停止。/
    Such sales must stop immediately once the author resumes updating.
